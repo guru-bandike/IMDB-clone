@@ -10,78 +10,78 @@
   <body>
     <header class="header">
       <nav class="nav-bar">
-        <a href="#" id="home">
+        <a href="index.html" id="home">
           <img src="src/assets/svgs/IMDB-Logo.svg" />
         </a>
         <input
           type="text"
           id="search-input"
+          autocomplete="off"
           placeholder="Search any Movie or Series..."
         />
-        <button id="fav-btn">Favourites</button>
+        <button id="favourites-btn">Favourites</button>
       </nav>
     </header>
+
     <main class="main-container">
-      <div class="ads-container">
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7359794959151954"
-          crossorigin="anonymous"
-        ></script>
-        <ins
-          class="adsbygoogle"
-          style="display: block"
-          data-ad-client="ca-pub-7359794959151954"
-          data-ad-slot="3441490282"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        ></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+      <div class="toast-message hide"></div>
+
+      <div class="loader hide"></div>
+      <div id="movies-display-container">
       </div>
 
       <div class="slider" id="slider">
-
         <h2 class="slider-heading">Popular Movies</h2>
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/bahubali-movie-poster.jpg"/>
+          <img
+            src="src/assets/popular-movies-posters/bahubali-movie-poster.jpg"
+          />
         </div>
 
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/fighter-movie-poster.jpg"/>
+          <img
+            src="src/assets/popular-movies-posters/fighter-movie-poster.jpg"
+          />
         </div>
 
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/jailer-movie-poster.jpg"/>
+          <img
+            src="src/assets/popular-movies-posters/jailer-movie-poster.jpg"
+          />
         </div>
 
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/jawan_movie_poster.png"/>
+          <img src="src/assets/popular-movies-posters/jawan_movie_poster.png" />
         </div>
 
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/lio-movie-poster.jpg"/>
+          <img src="src/assets/popular-movies-posters/lio-movie-poster.jpg" />
         </div>
 
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/pathaan-movie-poster.jpg"/>
+          <img
+            src="src/assets/popular-movies-posters/pathaan-movie-poster.jpg"
+          />
         </div>
 
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/rrr-movie-poster.jpg"/>
+          <img src="src/assets/popular-movies-posters/rrr-movie-poster.jpg" />
         </div>
 
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/salaar_movie_poster.jpg"/>
+          <img
+            src="src/assets/popular-movies-posters/salaar_movie_poster.jpg"
+          />
         </div>
 
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/three-movie-poster.jpg"/>
+          <img src="src/assets/popular-movies-posters/three-movie-poster.jpg" />
         </div>
 
         <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/tiger-3-movie-poster.jpg"/>
+          <img
+            src="src/assets/popular-movies-posters/tiger-3-movie-poster.jpg"
+          />
         </div>
 
         <!-- adding buttons for next and prev -->
