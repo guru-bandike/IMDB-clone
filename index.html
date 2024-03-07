@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IMDb</title>
     <link rel="icon" href="src/assets/icons/favicon.ico" />
+    <link rel="stylesheet" href="src/css/common.css" />
     <link rel="stylesheet" href="src/css/style.css" />
   </head>
   <body>
@@ -19,16 +20,19 @@
           autocomplete="off"
           placeholder="Search any Movie or Series..."
         />
-        <button id="favourites-btn">Favourites</button>
+        <a id="favourites-btn" href="favourites.html">
+          <p>
+            Favourites
+          </p>
+        </a>
       </nav>
     </header>
 
     <main class="main-container">
-      <div class="toast-message hide"></div>
 
+      <div class="toast-message hide"></div>
       <div class="loader hide"></div>
-      <div id="movies-display-container">
-      </div>
+      <div class="movies-display-container"></div>
 
       <div class="slider" id="slider">
         <h2 class="slider-heading">Popular Movies</h2>
@@ -119,6 +123,7 @@
         </span>
       </div>
     </main>
+    <script src="src/js/common.js"></script>
     <script src="src/js/index.js"></script>
   </body>
 </html>

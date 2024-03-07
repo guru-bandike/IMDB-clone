@@ -1,13 +1,15 @@
+// Define constants for accessing DOM elements
 const slider = document.querySelector("#slider");
 const searchInput = document.querySelector("#search-input");
-const moviesDisplayContainer = document.querySelector("#movies-display-container");
-const toastMessage = document.querySelector(".toast-message");
-const loader = document.querySelector(".loader");
 
+// Note: Several functions have been moved to common.js for reuse across pages.
+// This includes operations such as fetching movies (`fetchMovies`), displaying/hiding elements (`showElement`, `hideElement`),
+// and showing toast messages (`showToastMessage`). This centralization helps in maintaining consistency and reducing code duplication.
+
+// Variable to store the current fetch controller for aborting requests
 let currentFetchController = null;
 
-const fetchAPIUrl = "https://www.omdbapi.com/?apikey=5bcf2068";
-
+// Event listener for handling search input
 searchInput.addEventListener("keyup", async (event) => {
   // Abort any ongoing fetch request
   if (currentFetchController) {
@@ -18,17 +20,18 @@ searchInput.addEventListener("keyup", async (event) => {
   const signal = currentFetchController.signal;
   const movieName = event.target.value;
 
+  // Show or hide elements on key-up
   movieName === "" ? showElement(slider) : hideElement(slider);
   hideToastMessage();
   moviesDisplayContainer.innerHTML = "";
   showElement(loader);
 
+  // Fetch movies list and update UI
   const moviesList = await getMovies(movieName, signal);
 
   if (signal.aborted) {
     return;
   }
-
   hideElement(loader);
 
   if (moviesList) {
@@ -36,6 +39,7 @@ searchInput.addEventListener("keyup", async (event) => {
   }
 });
 
+// Function to fetch movies data
 async function getMovies(movieName, currentFetchController) {
   const queryParam = "&s=";
   const response = await fetchMovies(
@@ -60,74 +64,7 @@ async function getMovies(movieName, currentFetchController) {
   }
 }
 
-async function fetchMovies(query, queryParam, signal) {
-  const url = fetchAPIUrl + queryParam + query;
-
-  try {
-
-    const data = await (await fetch(url, { signal })).json();
-    if (data.Response === "False") throw new Error(data.Error);
-    return data;
-
-  } catch (error) {
-
-    if (error.message === "The user aborted a request.") {
-      console.log(
-        "Fetch request aborted to optimize search results, ensuring responsiveness to rapid user input changes."
-      );
-    } else if (error.message === "Movie not found!") {
-      const message =
-        "Oops! We couldn't find the movie. Please double-check the movie name and try again...😊";
-      showToastMessage(message);
-    } else if (error.message === "Too many results.") {
-      const message =
-        "Oops! There are too many search results. Please try a more specific search query...😊";
-      showToastMessage(message);
-    } else {
-      console.error(error);
-    }
-
-  }
-}
-
-async function addMoviesToDisplayContainer(moviesList) {
-  moviesList.forEach((movie) => {
-    addCurrentMovie(movie);
-  });
-}
-
-function addCurrentMovie(movie) {
-  const moviePosterSource =
-    movie.Poster !== "N/A"
-      ? movie.Poster
-      : "src/assets/svgs/no-image-available.svg";
-  const movieRating =
-    movie.imdbRating !== "N/A" ? movie.imdbRating + "/10" : "";
-  let movieCard = `
-    <div class="movie-card">
-      <div class="movie-poster">
-        <a href="">
-          <img src="${moviePosterSource}" alt="Movie Poster" class="poster-image" />
-        </a>
-      </div>
-      <div class="movie-info">
-        <span class="movie-rating">
-          <img src="src/assets/svgs/star-icon.svg" />
-          <a id="imdb-rating" href="https://www.imdb.com/title/${movie.imdbID}/" target="_blank">${movieRating}</a>
-        </span>
-        <button class="add-to-favorites-btn">
-          <img src="src/assets/svgs/add-to-favorites-icon.svg"/>
-        </button>
-      </div>
-      <div class="movie-title-container">
-        <a href="" class="movie-title">${movie.Title}</a>
-      </div>
-    </div>
-  `;
-
-  moviesDisplayContainer.insertAdjacentHTML("beforeend", movieCard);
-}
-
+//Function to manage slider functionality
 if (slider) {
   let e = slider.querySelectorAll(".slider-item"),
     s = slider.querySelector(".switch");
@@ -191,24 +128,7 @@ if (slider) {
     startSlideShow();
 }
 
-function showToastMessage(message) {
-  toastMessage.textContent = message;
-  showElement(toastMessage);
-}
-
-function hideToastMessage() {
-  hideElement(toastMessage);
-  toastMessage.textContent = "";
-}
-
-function showElement(element) {
-  if (element !== loader) {
-    element.classList.add("slide-Up");
-  }
-  element.classList.remove("hide");
-}
-
-function hideElement(element) {
-  element.classList.add("hide");
-  element.classList.remove("slide-up");
+// Helper fucntion to just validate this is not the favourites page.
+function isThisFavouritesPage() {
+  return false;
 }

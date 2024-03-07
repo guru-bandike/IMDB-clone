@@ -1,0 +1,9 @@
+/* Movies display container */
+
+.movies-display-container {
+    justify-content: flex-start;
+}
+
+.movie-card {
+    margin: 5px 30px 15px 0px;
+}
