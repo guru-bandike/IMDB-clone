@@ -95,4 +95,9 @@ async function loadMovieDetailsPage() {
   }
 }
 
+// Helper fucntion to just validate this is not the favourites page.
+function isThisFavouritesPage() {
+  return false;
+}
+
 loadMovieDetailsPage();
