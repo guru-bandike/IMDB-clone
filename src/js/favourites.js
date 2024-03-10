@@ -17,7 +17,7 @@ async function loadFavouriteMovies() {
     favouritesIDs.map(async (movieID) => {
       const query = movieID;
       const queryParam = "&i=";
-      const favouriteMovie = await fetchMovies(movieID, queryParam);
+      const favouriteMovie = await fetchMovies(query, queryParam);
       return favouriteMovie;
     })
   );

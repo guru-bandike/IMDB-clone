@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IMDb</title>
     <link rel="icon" href="src/assets/icons/favicon.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="src/css/common.css" />
     <link rel="stylesheet" href="src/css/style.css" />
   </head>
@@ -21,108 +27,251 @@
           placeholder="Search any Movie or Series..."
         />
         <a id="favourites-btn" href="favourites.html">
-          <p>
-            Favourites
-          </p>
+          <p>Favourites</p>
         </a>
       </nav>
     </header>
 
     <main class="main-container">
-
       <div class="toast-message hide"></div>
       <div class="loader hide"></div>
       <div class="movies-display-container"></div>
 
-      <div class="slider" id="slider">
-        <h2 class="slider-heading">Popular Movies</h2>
-        <div class="slider-item">
-          <img
-            src="src/assets/popular-movies-posters/bahubali-movie-poster.jpg"
-          />
+      <div
+        id="carouselExampleDark"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        data-bs-interval="2000"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="0"
+            class="active switch-bar"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="1"
+            class="switch-bar"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="2"
+            class="switch-bar"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="3"
+            class="active switch-bar"
+            aria-current="true"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="4"
+            class="switch-bar"
+            aria-label="Slide 5"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="5"
+            class="switch-bar"
+            aria-label="Slide 6"
+          ></button>
+          <button
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="6"
+            class="active switch-bar"
+            aria-current="true"
+            aria-label="Slide 7"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="7"
+            class="switch-bar"
+            aria-label="Slide 8"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="8"
+            class="active switch-bar"
+            aria-current="true"
+            aria-label="Slide 9"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="9"
+            class="switch-bar"
+            aria-label="Slide 1"
+          ></button>
         </div>
 
-        <div class="slider-item">
-          <img
-            src="src/assets/popular-movies-posters/fighter-movie-poster.jpg"
-          />
+        <h2 class="carousel-heading">Popular Movies</h2>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="movie-details.html?movieId=tt12844910">
+              <img
+                src="src/assets/popular-movies-posters/p1.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="movie-details.html?movieId=tt15354916">
+              <img
+                src="src/assets/popular-movies-posters/p2.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="movie-details.html?movieId=tt2631186">
+              <img
+                src="src/assets/popular-movies-posters/p3.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="movie-details.html?movieId=tt13927994">
+              <img
+                src="src/assets/popular-movies-posters/p4.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="movie-details.html?movieId=tt18411490">
+              <img
+                src="src/assets/popular-movies-posters/p5.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="movie-details.html?movieId=tt11663228">
+              <img
+                src="src/assets/popular-movies-posters/p6.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="movie-details.html?movieId=tt8178634">
+              <img
+                src="src/assets/popular-movies-posters/p7.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="movie-details.html?movieId=tt2123129">
+              <img
+                src="src/assets/popular-movies-posters/p8.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="movie-details.html?movieId=tt15654328">
+              <img
+                src="src/assets/popular-movies-posters/p9.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="movie-details.html?movieId=tt13818368">
+              <img
+                src="src/assets/popular-movies-posters/p10.jpg"
+                class="d-block w-100"
+              />
+            </a>
+          </div>
         </div>
 
-        <div class="slider-item">
-          <img
-            src="src/assets/popular-movies-posters/jailer-movie-poster.jpg"
-          />
-        </div>
-
-        <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/jawan_movie_poster.png" />
-        </div>
-
-        <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/lio-movie-poster.jpg" />
-        </div>
-
-        <div class="slider-item">
-          <img
-            src="src/assets/popular-movies-posters/pathaan-movie-poster.jpg"
-          />
-        </div>
-
-        <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/rrr-movie-poster.jpg" />
-        </div>
-
-        <div class="slider-item">
-          <img
-            src="src/assets/popular-movies-posters/salaar_movie_poster.jpg"
-          />
-        </div>
-
-        <div class="slider-item">
-          <img src="src/assets/popular-movies-posters/three-movie-poster.jpg" />
-        </div>
-
-        <div class="slider-item">
-          <img
-            src="src/assets/popular-movies-posters/tiger-3-movie-poster.jpg"
-          />
-        </div>
-
-        <!-- adding buttons for next and prev -->
-        <button class="prev">
-          <!-- icon for button -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="prev"
+        >
           <svg
+            fill="#FFFFFF"
+            height="50"
+            width="50"
+            version="1.1"
+            id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 492 492"
+            xml:space="preserve"
           >
-            <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+            <g>
+              <g>
+                <path
+                  d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12
+                  C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084
+                  c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864
+                  l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"
+                />
+              </g>
+            </g>
           </svg>
+          <span class="visually-hidden">Previous</span>
         </button>
-        <button class="next">
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="next"
+        >
           <svg
+            fill="#FFFFFF"
+            height="50"
+            width="50"
+            version="1.1"
+            id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 492.004 492.004"
+            xml:space="preserve"
           >
-            <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+            <g>
+              <g>
+                <path
+                  d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12
+                  c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028
+                  c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265
+                  c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"
+                />
+              </g>
+            </g>
           </svg>
+          <span class="visually-hidden">Next</span>
         </button>
-
-        <!-- Slider Background to provide initial height of cool background -->
-        <img
-          class="background"
-          src="src/assets/popular-movies-posters/slider-background-image.jpg"
-        />
-
-        <!-- Span element consist of Swicthes -->
-        <span class="switch">
-          <!-- dots representing current slider -->
-        </span>
       </div>
     </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <script src="src/js/common.js"></script>
     <script src="src/js/index.js"></script>
   </body>

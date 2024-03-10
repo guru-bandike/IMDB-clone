@@ -1,7 +1,7 @@
 // Define constants for accessing DOM elements
-const slider = document.querySelector("#slider");
+const carousel = document.querySelector(".carousel");
 const searchInput = document.querySelector("#search-input");
-
+const favouritesButton = document.querySelector("#favourites-btn");
 // Note: Several functions have been moved to common.js for reuse across pages.
 // This includes operations such as fetching movies (`fetchMovies`), displaying/hiding elements (`showElement`, `hideElement`),
 // and showing toast messages (`showToastMessage`). This centralization helps in maintaining consistency and reducing code duplication.
@@ -21,7 +21,7 @@ searchInput.addEventListener("keyup", async (event) => {
   const movieName = event.target.value;
 
   // Show or hide elements on key-up
-  movieName === "" ? showElement(slider) : hideElement(slider);
+  movieName === "" ? showElement(carousel) : hideElement(carousel);
   hideToastMessage();
   moviesDisplayContainer.innerHTML = "";
   showElement(loader);
@@ -64,69 +64,19 @@ async function getMovies(movieName, currentFetchController) {
   }
 }
 
-//Function to manage slider functionality
-if (slider) {
-  let e = slider.querySelectorAll(".slider-item"),
-    s = slider.querySelector(".switch");
-  const t = e.length;
-  let l,
-    i = 0;
+// Function to initiate a search for a popular movie based on its name
+function searchPopularMovie(movieElement) {
+  // Extract the movie name from the data attribute of the passed element
+  const movieName = movieElement.dataset.movieName;
 
-  for (; s.querySelectorAll("i").length != t; ) {
-    let e = document.createElement("i");
-    s.appendChild(e);
-  }
-  s = s.querySelectorAll("i");
-  const c = (l) => {
-      0 == l
-        ? (e[t - 1].classList.remove("show"),
-          e[t - 1].classList.add("hide"),
-          s[t - 1].classList.remove("active"))
-        : (e[l - 1].classList.remove("show"),
-          e[l - 1].classList.add("hide"),
-          s[l - 1].classList.remove("active")),
-        l == t - 1
-          ? e[0].classList.remove("hide")
-          : e[l + 1].classList.remove("hide"),
-        s[l].classList.add("active"),
-        e[l].classList.add("show");
-    },
-    r = (l) => {
-      0 == l
-        ? (e[t - 1].classList.remove("show"),
-          e[t - 1].classList.add("hide"),
-          s[t - 1].classList.remove("active"))
-        : (e[l - 1].classList.remove("show"),
-          e[l - 1].classList.add("hide"),
-          s[l - 1].classList.remove("active")),
-        l == t - 1
-          ? e[0].classList.remove("hide")
-          : e[l + 1].classList.remove("hide"),
-        l < t - 1
-          ? (e[l + 1].classList.remove("show"),
-            s[l + 1].classList.remove("active"))
-          : (e[0].classList.remove("show"), s[0].classList.remove("active")),
-        s[l].classList.add("active"),
-        e[l].classList.add("show");
-    };
-  function startSlideShow() {
-    l = setInterval(() => {
-      nextSliderImage();
-    }, 3000);
-  }
-  function nextSliderImage() {
-    i++, i == t && (i = 0), c(i), clearInterval(l), startSlideShow();
-  }
-  function previousSliderImage() {
-    i--, -1 == i && (i = t - 1), r(i), clearInterval(l), startSlideShow();
-  }
-  const a = slider.querySelector(".prev"),
-    o = slider.querySelector(".next");
-  o.addEventListener("click", nextSliderImage),
-    a.addEventListener("click", previousSliderImage),
-    c(i),
-    startSlideShow();
+  // Set the search input's value to the extracted movie name
+  searchInput.value = movieName;
+
+  // Simulate a keyup event to trigger input box event listener
+  searchInput.dispatchEvent(new KeyboardEvent("keyup", { key: "Enter" }));
 }
+
+
 
 // Helper fucntion to just validate this is not the favourites page.
 function isThisFavouritesPage() {
