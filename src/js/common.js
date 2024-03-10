@@ -6,7 +6,7 @@ const toastMessage = document.querySelector(".toast-message");
 const loader = document.querySelector(".loader");
 
 // API URL for fetching movies data
-const fetchAPIUrl = "https://www.omdbapi.com/?apikey=5bcf2068";
+const fetchAPIUrl = "https://www.omdbapi.com/?apikey=b8d0cfbb";
 
 // Helper function to perform fetch request
 async function fetchMovies(query, queryParam, signal) {
@@ -23,7 +23,11 @@ async function fetchMovies(query, queryParam, signal) {
 
 // Function to handle fetch errors and toast messages
 function handleFetchError(error) {
-  if (error.message === "The user aborted a request.") {
+  if (error.name === "TypeError" && !navigator.onLine) {
+    const message =
+      "Oops! It seems you're offline. Please check your internet connection and try again...😊";
+    showToastMessage(message);
+  } else if (error.message === "The user aborted a request.") {
     console.log(
       "Fetch request aborted to optimize search results, ensuring responsiveness to rapid user input changes."
     );
@@ -61,7 +65,7 @@ function addCurrentMovie(movie) {
   let movieCard = `
     <div class="movie-card">
       <div class="movie-poster">
-        <a href="">
+        <a href="movie-details.html?movieId=${movie.imdbID}">
           <img src="${moviePosterSource}" alt="Movie Poster" class="poster-image" />
         </a>
       </div>
@@ -74,7 +78,7 @@ function addCurrentMovie(movie) {
         </button>
       </div>
       <div class="movie-title-container">
-        <a href="" class="movie-title">${movie.Title}</a>
+        <a href="movie-details.html" class="movie-title">${movie.Title}</a>
       </div>
     </div>
   `;
@@ -119,7 +123,7 @@ function removeFromFavourites(movieId, toggleButton) {
     const movieCard = toggleButton.closest(".movie-card");
     if (movieCard) {
       movieCard.remove(); // Removes the movie card from the DOM
-      
+
       // show toast message if the user removed all of his favourites
       if (favourites.length === 0) {
         const message = `Oops! It looks like you have removed all of your favorites...🚫 <br> Explore and find new gems to add...🎬🌟 <br> Your next favorite is a search away...!🔍`;

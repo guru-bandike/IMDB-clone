@@ -156,7 +156,6 @@ body {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: row; */
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
@@ -167,6 +166,8 @@ body {
 
 .movie-card {
   width: 160px;
+  min-width: 160px;
+  display: inline-block;
   border-radius: 5px;
   overflow: hidden;
   margin: 10px 5px;
@@ -211,7 +212,7 @@ body {
   font-size: 1rem;
   color: #2674db;
   text-decoration: none;
-  top: 5px;
+  top: 1px;
   left: 23px;
 }
 
@@ -262,6 +263,8 @@ body {
   height: 39px;
   font-family: inherit;
   font-weight: bold;
+  line-height: 19px;
+  display: block;
   color: white;
   text-decoration: none;
 }
