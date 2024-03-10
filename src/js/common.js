@@ -78,7 +78,7 @@ function addCurrentMovie(movie) {
         </button>
       </div>
       <div class="movie-title-container">
-        <a href="movie-details.html" class="movie-title">${movie.Title}</a>
+        <a href="movie-details.html?movieId=${movie.imdbID}" class="movie-title">${movie.Title}</a>
       </div>
     </div>
   `;
