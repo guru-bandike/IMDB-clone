@@ -1,4 +1,4 @@
-// Function to load the movie details page 
+// Function to load the movie details page
 async function loadMovieDetailsPage() {
   // Retrieve the movieId from the URL search parameters
   const searchQuery = new URLSearchParams(window.location.search);
@@ -24,11 +24,9 @@ async function loadMovieDetailsPage() {
         : "src/assets/svgs/no-image-available.svg";
     // Format movie rating
     const movieRating =
-      movie.imdbRating !== "N/A"
-        ? `${movie.imdbRating}/10`
-        : "";
+      movie.imdbRating !== "N/A" ? `${movie.imdbRating}/10` : "";
     // Check if the movie is marked as a favourite
-    const favouriteClass = isFavourite(movie.imdbID) ? "is-favourite" : "";
+    const favouriteClass = isFavourite(movie.imdbID) ? "it-is-favourite" : "";
 
     // Construct HTML for movie details
     const movieDetailsHTML = `
@@ -68,7 +66,7 @@ async function loadMovieDetailsPage() {
     // Make relevant movie details visible
     revealAvailableMovieDetails();
   }
-  
+
   // Reveals movie details if available
   function revealAvailableMovieDetails() {
     // Define an array of movie details
@@ -95,8 +93,6 @@ async function loadMovieDetailsPage() {
         moiveDetailsElements[index].classList.remove("hide");
     });
   }
-
-
 }
 
 loadMovieDetailsPage();
