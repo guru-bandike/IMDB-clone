@@ -25,6 +25,7 @@ searchInput.addEventListener("keyup", async (event) => {
     hideElement(loader);
     showElement(carousel);
     hideToastMessage();
+    moviesDisplayContainer.innerHTML = "";
     return ; 
   }
   
