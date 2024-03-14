@@ -43,3 +43,8 @@ if (favouritesIDs && favouritesIDs.length > 0) {
 function isThisFavouritesPage() {
   return true;
 }
+
+// Helper fucntion to just validate this is not the movie details page.
+function isThisMovieDetailsPage() {
+  return false;
+}

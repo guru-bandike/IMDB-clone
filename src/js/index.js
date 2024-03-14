@@ -20,11 +20,19 @@ searchInput.addEventListener("keyup", async (event) => {
   const signal = currentFetchController.signal;
   const movieName = event.target.value;
 
-  // Show or hide elements on key-up
-  movieName === "" ? showElement(carousel) : hideElement(carousel);
+  // Exit the function and show or hide elements if the query is empty
+  if (movieName === "") {
+    hideElement(loader);
+    showElement(carousel);
+    hideToastMessage();
+    return ; 
+  }
+  
+  // Show or hide elements on valid query
+  showElement(loader);
+  hideElement(carousel);
   hideToastMessage();
   moviesDisplayContainer.innerHTML = "";
-  showElement(loader);
 
   // Fetch movies list and update UI
   const moviesList = await getMovies(movieName, signal);
@@ -80,5 +88,10 @@ function searchPopularMovie(movieElement) {
 
 // Helper fucntion to just validate this is not the favourites page.
 function isThisFavouritesPage() {
+  return false;
+}
+
+// Helper fucntion to just validate this is not the movie details page.
+function isThisMovieDetailsPage() {
   return false;
 }
