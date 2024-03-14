@@ -39,6 +39,13 @@ function handleFetchError(error) {
     const message =
       "Oops! There are too many search results. Please try a more specific search query...😊";
     showToastMessage(message);
+  } else if (
+    isThisMovieDetailsPage() &&
+    error.message === "Incorrect IMDb ID."
+  ) {
+    const message =
+      "Oops! It looks like there's an issue with the movie ID in the URL 🙈. Please ensure that you are not tampering with the URL. Let's give it another shot! 🚀";
+    showToastMessage(message);
   } else {
     console.error(error);
   }

@@ -100,4 +100,9 @@ function isThisFavouritesPage() {
   return false;
 }
 
+// Helper fucntion to just validate this is the movie details page.
+function isThisMovieDetailsPage() {
+  return true;
+}
+
 loadMovieDetailsPage();
